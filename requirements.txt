@@ -7,3 +7,8 @@ channels-redis
 whiteNoise
 python-dotenv
 django-extensions
+numpy==1.24.1
+django-vectordb[standard]
+django-cors-headers
+uvicorn
+gunicorn

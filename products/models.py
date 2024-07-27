@@ -7,7 +7,6 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
-
 class AirConditioners(models.Model):
     id = models.BigIntegerField(primary_key=True)
     name = models.TextField(blank=True, null=True)
@@ -23,6 +22,14 @@ class AirConditioners(models.Model):
     class Meta:
         managed = False
         db_table = 'Air Conditioners'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AirConditioners"}
 
 
 class AllAppliances(models.Model):
@@ -41,6 +48,14 @@ class AllAppliances(models.Model):
         managed = False
         db_table = 'All Appliances'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllAppliances"}
+
 
 class AllBooks(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -57,6 +72,14 @@ class AllBooks(models.Model):
     class Meta:
         managed = False
         db_table = 'All Books'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllBooks"}
 
 
 class AllCarAndMotorbikeProducts(models.Model):
@@ -75,6 +98,14 @@ class AllCarAndMotorbikeProducts(models.Model):
         managed = False
         db_table = 'All Car and Motorbike Products'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllCarAndMotorbikeProducts"}
+
 
 class AllElectronics(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -91,6 +122,14 @@ class AllElectronics(models.Model):
     class Meta:
         managed = False
         db_table = 'All Electronics'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllElectronics"}
 
 
 class AllEnglish(models.Model):
@@ -109,6 +148,14 @@ class AllEnglish(models.Model):
         managed = False
         db_table = 'All English'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllEnglish"}
+
 
 class AllExerciseAndFitness(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -125,6 +172,14 @@ class AllExerciseAndFitness(models.Model):
     class Meta:
         managed = False
         db_table = 'All Exercise and Fitness'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllExerciseAndFitness"}
 
 
 class AllGroceryAndGourmetFoods(models.Model):
@@ -143,6 +198,14 @@ class AllGroceryAndGourmetFoods(models.Model):
         managed = False
         db_table = 'All Grocery and Gourmet Foods'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllGroceryAndGourmetFoods"}
+
 
 class AllHindi(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -159,6 +222,14 @@ class AllHindi(models.Model):
     class Meta:
         managed = False
         db_table = 'All Hindi'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllHindi"}
 
 
 class AllHomeAndKitchen(models.Model):
@@ -177,6 +248,14 @@ class AllHomeAndKitchen(models.Model):
         managed = False
         db_table = 'All Home and Kitchen'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllHomeAndKitchen"}
+
 
 class AllMoviesAndTvShows(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -193,6 +272,14 @@ class AllMoviesAndTvShows(models.Model):
     class Meta:
         managed = False
         db_table = 'All Movies and TV Shows'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllMoviesAndTvShows"}
 
 
 class AllMusic(models.Model):
@@ -211,6 +298,14 @@ class AllMusic(models.Model):
         managed = False
         db_table = 'All Music'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllMusic"}
+
 
 class AllPetSupplies(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -227,6 +322,14 @@ class AllPetSupplies(models.Model):
     class Meta:
         managed = False
         db_table = 'All Pet Supplies'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllPetSupplies"}
 
 
 class AllSportsFitnessAndOutdoors(models.Model):
@@ -245,6 +348,14 @@ class AllSportsFitnessAndOutdoors(models.Model):
         managed = False
         db_table = 'All Sports Fitness and Outdoors'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllSportsFitnessAndOutdoors"}
+
 
 class AllVideoGames(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -261,6 +372,14 @@ class AllVideoGames(models.Model):
     class Meta:
         managed = False
         db_table = 'All Video Games'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AllVideoGames"}
 
 
 class AmazonFashion(models.Model):
@@ -279,6 +398,14 @@ class AmazonFashion(models.Model):
         managed = False
         db_table = 'Amazon Fashion'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AmazonFashion"}
+
 
 class AmazonPharmacy(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -295,6 +422,14 @@ class AmazonPharmacy(models.Model):
     class Meta:
         managed = False
         db_table = 'Amazon Pharmacy'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AmazonPharmacy"}
 
 
 class AmazonProducts(models.Model):
@@ -313,6 +448,14 @@ class AmazonProducts(models.Model):
         managed = False
         db_table = 'Amazon-Products'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "AmazonProducts"}
+
 
 class BabyBathSkinAndGrooming(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -329,6 +472,14 @@ class BabyBathSkinAndGrooming(models.Model):
     class Meta:
         managed = False
         db_table = 'Baby Bath Skin and Grooming'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "BabyBathSkinAndGrooming"}
 
 
 class BabyFashion(models.Model):
@@ -347,6 +498,14 @@ class BabyFashion(models.Model):
         managed = False
         db_table = 'Baby Fashion'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "BabyFashion"}
+
 
 class BabyProducts(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -363,6 +522,14 @@ class BabyProducts(models.Model):
     class Meta:
         managed = False
         db_table = 'Baby Products'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "BabyProducts"}
 
 
 class Backpacks(models.Model):
@@ -381,6 +548,14 @@ class Backpacks(models.Model):
         managed = False
         db_table = 'Backpacks'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Backpacks"}
+
 
 class Badminton(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -397,6 +572,14 @@ class Badminton(models.Model):
     class Meta:
         managed = False
         db_table = 'Badminton'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Badminton"}
 
 
 class BagsAndLuggage(models.Model):
@@ -415,6 +598,14 @@ class BagsAndLuggage(models.Model):
         managed = False
         db_table = 'Bags and Luggage'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "BagsAndLuggage"}
+
 
 class Ballerinas(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -431,6 +622,14 @@ class Ballerinas(models.Model):
     class Meta:
         managed = False
         db_table = 'Ballerinas'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Ballerinas"}
 
 
 class BeautyAndGrooming(models.Model):
@@ -449,6 +648,14 @@ class BeautyAndGrooming(models.Model):
         managed = False
         db_table = 'Beauty and Grooming'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "BeautyAndGrooming"}
+
 
 class BedroomLinen(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -465,6 +672,14 @@ class BedroomLinen(models.Model):
     class Meta:
         managed = False
         db_table = 'Bedroom Linen'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "BedroomLinen"}
 
 
 class BluRay(models.Model):
@@ -483,6 +698,14 @@ class BluRay(models.Model):
         managed = False
         db_table = 'Blu-ray'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "BluRay"}
+
 
 class CameraAccessories(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -499,6 +722,14 @@ class CameraAccessories(models.Model):
     class Meta:
         managed = False
         db_table = 'Camera Accessories'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "CameraAccessories"}
 
 
 class Cameras(models.Model):
@@ -517,6 +748,14 @@ class Cameras(models.Model):
         managed = False
         db_table = 'Cameras'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Cameras"}
+
 
 class CampingAndHiking(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -533,6 +772,14 @@ class CampingAndHiking(models.Model):
     class Meta:
         managed = False
         db_table = 'Camping and Hiking'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "CampingAndHiking"}
 
 
 class CarAccessories(models.Model):
@@ -551,6 +798,14 @@ class CarAccessories(models.Model):
         managed = False
         db_table = 'Car Accessories'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "CarAccessories"}
+
 
 class CarElectronics(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -567,6 +822,14 @@ class CarElectronics(models.Model):
     class Meta:
         managed = False
         db_table = 'Car Electronics'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "CarElectronics"}
 
 
 class CarParts(models.Model):
@@ -585,6 +848,14 @@ class CarParts(models.Model):
         managed = False
         db_table = 'Car Parts'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "CarParts"}
+
 
 class CarAndBikeCare(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -601,6 +872,14 @@ class CarAndBikeCare(models.Model):
     class Meta:
         managed = False
         db_table = 'Car and Bike Care'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "CarAndBikeCare"}
 
 
 class CardioEquipment(models.Model):
@@ -619,6 +898,14 @@ class CardioEquipment(models.Model):
         managed = False
         db_table = 'Cardio Equipment'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "CardioEquipment"}
+
 
 class CasualShoes(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -635,6 +922,14 @@ class CasualShoes(models.Model):
     class Meta:
         managed = False
         db_table = 'Casual Shoes'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "CasualShoes"}
 
 
 class ChildrensBooks(models.Model):
@@ -653,6 +948,14 @@ class ChildrensBooks(models.Model):
         managed = False
         db_table = 'Childrens Books'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "ChildrensBooks"}
+
 
 class Clothing(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -669,6 +972,14 @@ class Clothing(models.Model):
     class Meta:
         managed = False
         db_table = 'Clothing'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Clothing"}
 
 
 class CoffeeTeaAndBeverages(models.Model):
@@ -687,6 +998,14 @@ class CoffeeTeaAndBeverages(models.Model):
         managed = False
         db_table = 'Coffee Tea and Beverages'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "CoffeeTeaAndBeverages"}
+
 
 class Cricket(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -703,6 +1022,14 @@ class Cricket(models.Model):
     class Meta:
         managed = False
         db_table = 'Cricket'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Cricket"}
 
 
 class Cycling(models.Model):
@@ -721,6 +1048,14 @@ class Cycling(models.Model):
         managed = False
         db_table = 'Cycling'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Cycling"}
+
 
 class Diapers(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -737,6 +1072,14 @@ class Diapers(models.Model):
     class Meta:
         managed = False
         db_table = 'Diapers'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Diapers"}
 
 
 class DietAndNutrition(models.Model):
@@ -755,6 +1098,14 @@ class DietAndNutrition(models.Model):
         managed = False
         db_table = 'Diet and Nutrition'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "DietAndNutrition"}
+
 
 class DogSupplies(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -771,6 +1122,14 @@ class DogSupplies(models.Model):
     class Meta:
         managed = False
         db_table = 'Dog supplies'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "DogSupplies"}
 
 
 class EntertainmentCollectibles(models.Model):
@@ -789,6 +1148,14 @@ class EntertainmentCollectibles(models.Model):
         managed = False
         db_table = 'Entertainment Collectibles'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "EntertainmentCollectibles"}
+
 
 class EthnicWear(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -805,6 +1172,14 @@ class EthnicWear(models.Model):
     class Meta:
         managed = False
         db_table = 'Ethnic Wear'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "EthnicWear"}
 
 
 class ExamCentral(models.Model):
@@ -823,6 +1198,14 @@ class ExamCentral(models.Model):
         managed = False
         db_table = 'Exam Central'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "ExamCentral"}
+
 
 class FashionSalesAndDeals(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -839,6 +1222,14 @@ class FashionSalesAndDeals(models.Model):
     class Meta:
         managed = False
         db_table = 'Fashion Sales and Deals'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "FashionSalesAndDeals"}
 
 
 class FashionSandals(models.Model):
@@ -857,6 +1248,14 @@ class FashionSandals(models.Model):
         managed = False
         db_table = 'Fashion Sandals'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "FashionSandals"}
+
 
 class FashionAndSilverJewellery(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -873,6 +1272,14 @@ class FashionAndSilverJewellery(models.Model):
     class Meta:
         managed = False
         db_table = 'Fashion and Silver Jewellery'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "FashionAndSilverJewellery"}
 
 
 class FictionBooks(models.Model):
@@ -891,6 +1298,14 @@ class FictionBooks(models.Model):
         managed = False
         db_table = 'Fiction Books'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "FictionBooks"}
+
 
 class FilmSongs(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -907,6 +1322,14 @@ class FilmSongs(models.Model):
     class Meta:
         managed = False
         db_table = 'Film Songs'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "FilmSongs"}
 
 
 class FineArt(models.Model):
@@ -925,6 +1348,14 @@ class FineArt(models.Model):
         managed = False
         db_table = 'Fine Art'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "FineArt"}
+
 
 class FitnessAccessories(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -941,6 +1372,14 @@ class FitnessAccessories(models.Model):
     class Meta:
         managed = False
         db_table = 'Fitness Accessories'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "FitnessAccessories"}
 
 
 class Football(models.Model):
@@ -959,6 +1398,14 @@ class Football(models.Model):
         managed = False
         db_table = 'Football'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Football"}
+
 
 class FormalShoes(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -975,6 +1422,14 @@ class FormalShoes(models.Model):
     class Meta:
         managed = False
         db_table = 'Formal Shoes'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "FormalShoes"}
 
 
 class Furniture(models.Model):
@@ -993,6 +1448,14 @@ class Furniture(models.Model):
         managed = False
         db_table = 'Furniture'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Furniture"}
+
 
 class GamingAccessories(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1009,6 +1472,14 @@ class GamingAccessories(models.Model):
     class Meta:
         managed = False
         db_table = 'Gaming Accessories'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "GamingAccessories"}
 
 
 class GamingConsoles(models.Model):
@@ -1027,6 +1498,14 @@ class GamingConsoles(models.Model):
         managed = False
         db_table = 'Gaming Consoles'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "GamingConsoles"}
+
 
 class GardenAndOutdoors(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1043,6 +1522,14 @@ class GardenAndOutdoors(models.Model):
     class Meta:
         managed = False
         db_table = 'Garden and Outdoors'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "GardenAndOutdoors"}
 
 
 class GoldAndDiamondJewellery(models.Model):
@@ -1061,6 +1548,14 @@ class GoldAndDiamondJewellery(models.Model):
         managed = False
         db_table = 'Gold and Diamond Jewellery'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "GoldAndDiamondJewellery"}
+
 
 class HandbagsAndClutches(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1077,6 +1572,14 @@ class HandbagsAndClutches(models.Model):
     class Meta:
         managed = False
         db_table = 'Handbags and Clutches'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "HandbagsAndClutches"}
 
 
 class Headphones(models.Model):
@@ -1095,6 +1598,14 @@ class Headphones(models.Model):
         managed = False
         db_table = 'Headphones'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Headphones"}
+
 
 class HealthAndPersonalCare(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1111,6 +1622,14 @@ class HealthAndPersonalCare(models.Model):
     class Meta:
         managed = False
         db_table = 'Health and Personal Care'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "HealthAndPersonalCare"}
 
 
 class HeatingAndCoolingAppliances(models.Model):
@@ -1129,6 +1648,14 @@ class HeatingAndCoolingAppliances(models.Model):
         managed = False
         db_table = 'Heating and Cooling Appliances'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "HeatingAndCoolingAppliances"}
+
 
 class HomeAudioAndTheater(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1145,6 +1672,14 @@ class HomeAudioAndTheater(models.Model):
     class Meta:
         managed = False
         db_table = 'Home Audio and Theater'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "HomeAudioAndTheater"}
 
 
 class HomeDcor(models.Model):
@@ -1163,6 +1698,14 @@ class HomeDcor(models.Model):
         managed = False
         db_table = 'Home Dcor'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "HomeDcor"}
+
 
 class HomeEntertainmentSystems(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1179,6 +1722,14 @@ class HomeEntertainmentSystems(models.Model):
     class Meta:
         managed = False
         db_table = 'Home Entertainment Systems'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "HomeEntertainmentSystems"}
 
 
 class HomeFurnishing(models.Model):
@@ -1197,6 +1748,14 @@ class HomeFurnishing(models.Model):
         managed = False
         db_table = 'Home Furnishing'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "HomeFurnishing"}
+
 
 class HomeImprovement(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1213,6 +1772,14 @@ class HomeImprovement(models.Model):
     class Meta:
         managed = False
         db_table = 'Home Improvement'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "HomeImprovement"}
 
 
 class HomeStorage(models.Model):
@@ -1231,6 +1798,14 @@ class HomeStorage(models.Model):
         managed = False
         db_table = 'Home Storage'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "HomeStorage"}
+
 
 class HouseholdSupplies(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1247,6 +1822,14 @@ class HouseholdSupplies(models.Model):
     class Meta:
         managed = False
         db_table = 'Household Supplies'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "HouseholdSupplies"}
 
 
 class IndianClassical(models.Model):
@@ -1265,6 +1848,14 @@ class IndianClassical(models.Model):
         managed = False
         db_table = 'Indian Classical'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "IndianClassical"}
+
 
 class IndianLanguageBooks(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1281,6 +1872,14 @@ class IndianLanguageBooks(models.Model):
     class Meta:
         managed = False
         db_table = 'Indian Language Books'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "IndianLanguageBooks"}
 
 
 class IndoorLighting(models.Model):
@@ -1299,6 +1898,14 @@ class IndoorLighting(models.Model):
         managed = False
         db_table = 'Indoor Lighting'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "IndoorLighting"}
+
 
 class IndustrialAndScientificSupplies(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1315,6 +1922,14 @@ class IndustrialAndScientificSupplies(models.Model):
     class Meta:
         managed = False
         db_table = 'Industrial and Scientific Supplies'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "IndustrialAndScientificSupplies"}
 
 
 class Innerwear(models.Model):
@@ -1333,6 +1948,14 @@ class Innerwear(models.Model):
         managed = False
         db_table = 'Innerwear'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Innerwear"}
+
 
 class InternationalMusic(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1349,6 +1972,14 @@ class InternationalMusic(models.Model):
     class Meta:
         managed = False
         db_table = 'International Music'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "InternationalMusic"}
 
 
 class InternationalToyStore(models.Model):
@@ -1367,6 +1998,14 @@ class InternationalToyStore(models.Model):
         managed = False
         db_table = 'International Toy Store'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "InternationalToyStore"}
+
 
 class JanitorialAndSanitationSupplies(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1383,6 +2022,14 @@ class JanitorialAndSanitationSupplies(models.Model):
     class Meta:
         managed = False
         db_table = 'Janitorial and Sanitation Supplies'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "JanitorialAndSanitationSupplies"}
 
 
 class Jeans(models.Model):
@@ -1401,6 +2048,14 @@ class Jeans(models.Model):
         managed = False
         db_table = 'Jeans'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Jeans"}
+
 
 class Jewellery(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1417,6 +2072,14 @@ class Jewellery(models.Model):
     class Meta:
         managed = False
         db_table = 'Jewellery'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Jewellery"}
 
 
 class KidsClothing(models.Model):
@@ -1435,6 +2098,14 @@ class KidsClothing(models.Model):
         managed = False
         db_table = 'Kids Clothing'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "KidsClothing"}
+
 
 class KidsFashion(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1451,6 +2122,14 @@ class KidsFashion(models.Model):
     class Meta:
         managed = False
         db_table = 'Kids Fashion'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "KidsFashion"}
 
 
 class KidsShoes(models.Model):
@@ -1469,6 +2148,14 @@ class KidsShoes(models.Model):
         managed = False
         db_table = 'Kids Shoes'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "KidsShoes"}
+
 
 class KidsWatches(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1485,6 +2172,14 @@ class KidsWatches(models.Model):
     class Meta:
         managed = False
         db_table = 'Kids Watches'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "KidsWatches"}
 
 
 class KindleEbooks(models.Model):
@@ -1503,6 +2198,14 @@ class KindleEbooks(models.Model):
         managed = False
         db_table = 'Kindle eBooks'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "KindleEbooks"}
+
 
 class KitchenStorageAndContainers(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1519,6 +2222,14 @@ class KitchenStorageAndContainers(models.Model):
     class Meta:
         managed = False
         db_table = 'Kitchen Storage and Containers'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "KitchenStorageAndContainers"}
 
 
 class KitchenAndDining(models.Model):
@@ -1537,6 +2248,14 @@ class KitchenAndDining(models.Model):
         managed = False
         db_table = 'Kitchen and Dining'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "KitchenAndDining"}
+
 
 class KitchenAndHomeAppliances(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1553,6 +2272,14 @@ class KitchenAndHomeAppliances(models.Model):
     class Meta:
         managed = False
         db_table = 'Kitchen and Home Appliances'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "KitchenAndHomeAppliances"}
 
 
 class LabAndScientific(models.Model):
@@ -1571,6 +2298,14 @@ class LabAndScientific(models.Model):
         managed = False
         db_table = 'Lab and Scientific'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "LabAndScientific"}
+
 
 class LingerieAndNightwear(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1587,6 +2322,14 @@ class LingerieAndNightwear(models.Model):
     class Meta:
         managed = False
         db_table = 'Lingerie and Nightwear'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "LingerieAndNightwear"}
 
 
 class LuxuryBeauty(models.Model):
@@ -1605,6 +2348,14 @@ class LuxuryBeauty(models.Model):
         managed = False
         db_table = 'Luxury Beauty'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "LuxuryBeauty"}
+
 
 class MakeUp(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1621,6 +2372,14 @@ class MakeUp(models.Model):
     class Meta:
         managed = False
         db_table = 'Make-up'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "MakeUp"}
 
 
 class MensFashion(models.Model):
@@ -1639,6 +2398,14 @@ class MensFashion(models.Model):
         managed = False
         db_table = 'Mens Fashion'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "MensFashion"}
+
 
 class MotorbikeAccessoriesAndParts(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1655,6 +2422,14 @@ class MotorbikeAccessoriesAndParts(models.Model):
     class Meta:
         managed = False
         db_table = 'Motorbike Accessories and Parts'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "MotorbikeAccessoriesAndParts"}
 
 
 class MusicalInstrumentsAndProfessionalAudio(models.Model):
@@ -1673,6 +2448,14 @@ class MusicalInstrumentsAndProfessionalAudio(models.Model):
         managed = False
         db_table = 'Musical Instruments and Professional Audio'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "MusicalInstrumentsAndProfessionalAudio"}
+
 
 class NursingAndFeeding(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1689,6 +2472,14 @@ class NursingAndFeeding(models.Model):
     class Meta:
         managed = False
         db_table = 'Nursing and Feeding'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "NursingAndFeeding"}
 
 
 class PcGames(models.Model):
@@ -1707,6 +2498,14 @@ class PcGames(models.Model):
         managed = False
         db_table = 'PC Games'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "PcGames"}
+
 
 class Pantry(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1723,6 +2522,14 @@ class Pantry(models.Model):
     class Meta:
         managed = False
         db_table = 'Pantry'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Pantry"}
 
 
 class PersonalCareAppliances(models.Model):
@@ -1741,6 +2548,14 @@ class PersonalCareAppliances(models.Model):
         managed = False
         db_table = 'Personal Care Appliances'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "PersonalCareAppliances"}
+
 
 class Refrigerators(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1757,6 +2572,14 @@ class Refrigerators(models.Model):
     class Meta:
         managed = False
         db_table = 'Refrigerators'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Refrigerators"}
 
 
 class RefurbishedAndOpenBox(models.Model):
@@ -1775,6 +2598,14 @@ class RefurbishedAndOpenBox(models.Model):
         managed = False
         db_table = 'Refurbished and Open Box'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "RefurbishedAndOpenBox"}
+
 
 class Rucksacks(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1791,6 +2622,14 @@ class Rucksacks(models.Model):
     class Meta:
         managed = False
         db_table = 'Rucksacks'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Rucksacks"}
 
 
 class Running(models.Model):
@@ -1809,6 +2648,14 @@ class Running(models.Model):
         managed = False
         db_table = 'Running'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Running"}
+
 
 class StemToysStore(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1825,6 +2672,14 @@ class StemToysStore(models.Model):
     class Meta:
         managed = False
         db_table = 'STEM Toys Store'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "StemToysStore"}
 
 
 class SchoolBags(models.Model):
@@ -1843,6 +2698,14 @@ class SchoolBags(models.Model):
         managed = False
         db_table = 'School Bags'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "SchoolBags"}
+
 
 class SchoolTextbooks(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1859,6 +2722,14 @@ class SchoolTextbooks(models.Model):
     class Meta:
         managed = False
         db_table = 'School Textbooks'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "SchoolTextbooks"}
 
 
 class SecurityCameras(models.Model):
@@ -1877,6 +2748,14 @@ class SecurityCameras(models.Model):
         managed = False
         db_table = 'Security Cameras'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "SecurityCameras"}
+
 
 class SewingAndCraftSupplies(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1893,6 +2772,14 @@ class SewingAndCraftSupplies(models.Model):
     class Meta:
         managed = False
         db_table = 'Sewing and Craft Supplies'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "SewingAndCraftSupplies"}
 
 
 class Shirts(models.Model):
@@ -1911,6 +2798,14 @@ class Shirts(models.Model):
         managed = False
         db_table = 'Shirts'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Shirts"}
+
 
 class Shoes(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1927,6 +2822,14 @@ class Shoes(models.Model):
     class Meta:
         managed = False
         db_table = 'Shoes'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Shoes"}
 
 
 class SnackFoods(models.Model):
@@ -1945,6 +2848,14 @@ class SnackFoods(models.Model):
         managed = False
         db_table = 'Snack Foods'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "SnackFoods"}
+
 
 class Speakers(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1961,6 +2872,14 @@ class Speakers(models.Model):
     class Meta:
         managed = False
         db_table = 'Speakers'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Speakers"}
 
 
 class SportsCollectibles(models.Model):
@@ -1979,6 +2898,14 @@ class SportsCollectibles(models.Model):
         managed = False
         db_table = 'Sports Collectibles'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "SportsCollectibles"}
+
 
 class SportsShoes(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -1995,6 +2922,14 @@ class SportsShoes(models.Model):
     class Meta:
         managed = False
         db_table = 'Sports Shoes'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "SportsShoes"}
 
 
 class Sportswear(models.Model):
@@ -2013,6 +2948,14 @@ class Sportswear(models.Model):
         managed = False
         db_table = 'Sportswear'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Sportswear"}
+
 
 class StrengthTraining(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -2029,6 +2972,14 @@ class StrengthTraining(models.Model):
     class Meta:
         managed = False
         db_table = 'Strength Training'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "StrengthTraining"}
 
 
 class StrollersAndPrams(models.Model):
@@ -2047,6 +2998,14 @@ class StrollersAndPrams(models.Model):
         managed = False
         db_table = 'Strollers and Prams'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "StrollersAndPrams"}
+
 
 class SubscribeAndSave(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -2063,6 +3022,14 @@ class SubscribeAndSave(models.Model):
     class Meta:
         managed = False
         db_table = 'Subscribe and Save'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "SubscribeAndSave"}
 
 
 class SuitcasesAndTrolleyBags(models.Model):
@@ -2081,6 +3048,14 @@ class SuitcasesAndTrolleyBags(models.Model):
         managed = False
         db_table = 'Suitcases and Trolley Bags'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "SuitcasesAndTrolleyBags"}
+
 
 class Sunglasses(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -2097,6 +3072,14 @@ class Sunglasses(models.Model):
     class Meta:
         managed = False
         db_table = 'Sunglasses'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Sunglasses"}
 
 
 class TShirtsAndPolos(models.Model):
@@ -2115,6 +3098,14 @@ class TShirtsAndPolos(models.Model):
         managed = False
         db_table = 'T-shirts and Polos'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "TShirtsAndPolos"}
+
 
 class Televisions(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -2131,6 +3122,14 @@ class Televisions(models.Model):
     class Meta:
         managed = False
         db_table = 'Televisions'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Televisions"}
 
 
 class TestMeasureAndInspect(models.Model):
@@ -2149,6 +3148,14 @@ class TestMeasureAndInspect(models.Model):
         managed = False
         db_table = 'Test Measure and Inspect'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "TestMeasureAndInspect"}
+
 
 class Textbooks(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -2165,6 +3172,14 @@ class Textbooks(models.Model):
     class Meta:
         managed = False
         db_table = 'Textbooks'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Textbooks"}
 
 
 class TheDesignerBoutique(models.Model):
@@ -2183,6 +3198,14 @@ class TheDesignerBoutique(models.Model):
         managed = False
         db_table = 'The Designer Boutique'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "TheDesignerBoutique"}
+
 
 class ToysGiftingStore(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -2199,6 +3222,14 @@ class ToysGiftingStore(models.Model):
     class Meta:
         managed = False
         db_table = 'Toys Gifting Store'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "ToysGiftingStore"}
 
 
 class ToysAndGames(models.Model):
@@ -2217,6 +3248,14 @@ class ToysAndGames(models.Model):
         managed = False
         db_table = 'Toys and Games'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "ToysAndGames"}
+
 
 class TravelAccessories(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -2233,6 +3272,14 @@ class TravelAccessories(models.Model):
     class Meta:
         managed = False
         db_table = 'Travel Accessories'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "TravelAccessories"}
 
 
 class TravelDuffles(models.Model):
@@ -2251,6 +3298,14 @@ class TravelDuffles(models.Model):
         managed = False
         db_table = 'Travel Duffles'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "TravelDuffles"}
+
 
 class ValueBazaar(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -2267,6 +3322,14 @@ class ValueBazaar(models.Model):
     class Meta:
         managed = False
         db_table = 'Value Bazaar'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "ValueBazaar"}
 
 
 class VideoGamesDeals(models.Model):
@@ -2285,6 +3348,14 @@ class VideoGamesDeals(models.Model):
         managed = False
         db_table = 'Video Games Deals'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "VideoGamesDeals"}
+
 
 class Wallets(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -2301,6 +3372,14 @@ class Wallets(models.Model):
     class Meta:
         managed = False
         db_table = 'Wallets'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Wallets"}
 
 
 class WashingMachines(models.Model):
@@ -2319,6 +3398,14 @@ class WashingMachines(models.Model):
         managed = False
         db_table = 'Washing Machines'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "WashingMachines"}
+
 
 class Watches(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -2335,6 +3422,14 @@ class Watches(models.Model):
     class Meta:
         managed = False
         db_table = 'Watches'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Watches"}
 
 
 class WesternWear(models.Model):
@@ -2353,6 +3448,14 @@ class WesternWear(models.Model):
         managed = False
         db_table = 'Western Wear'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "WesternWear"}
+
 
 class WomensFashion(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -2370,6 +3473,14 @@ class WomensFashion(models.Model):
         managed = False
         db_table = 'Womens Fashion'
 
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "WomensFashion"}
+
 
 class Yoga(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -2386,3 +3497,11 @@ class Yoga(models.Model):
     class Meta:
         managed = False
         db_table = 'Yoga'
+
+    def get_vectordb_text(self):
+        # Use name and main_category for vector search
+        return f"{self.name} \n\n {self.main_category}"
+
+    def get_vectordb_metadata(self):
+        # Enable filtering by any of these metadata
+        return {"name": self.name, "main_category": self.main_category, "model": "Yoga"}

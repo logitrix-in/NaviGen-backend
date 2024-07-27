@@ -35,7 +35,8 @@ SECRET_KEY = 'django-insecure-t+0^^)#)!lu^hb+ue!a!$x2%p3lm75fdwwhf5tw2t%hk3t+s-x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -50,6 +51,8 @@ INSTALLED_APPS = [
     'products',
     'rest_framework',
     'django_extensions',
+    'vectordb',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -60,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'navigen.urls'
@@ -80,7 +84,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'navigen.wsgi.application'
+# WSGI_APPLICATION = 'navigen.wsgi.application'
+ASGI_APPLICATION = 'navigen.asgi.application'
 
 
 # Database
@@ -138,3 +143,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CORS_ORIGIN_ALLOW_ALL = True
