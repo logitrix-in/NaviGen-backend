@@ -16,3 +16,4 @@ psycopg2-binary
 django-storages[azure]
 azure-storage-blob
 azure-identity
+django-jet-reboot
