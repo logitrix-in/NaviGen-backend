@@ -13,16 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install SSH client
-      run: sudo apt-get install openssh-client
-
     - name: Pull code via SSH
-      env:
-        SSH_KEY: ${{ secrets.SSH_KEY }}
-        USERNAME: ${{ secrets.SSH_USERNAME }}
-        HOST: ${{ secrets.SSH_HOST }}
-      run: |
-        cd /mnt/navigen/api/
-        git pull
-        
-        
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          cd /mnt/navigen/api/
+          git pull
