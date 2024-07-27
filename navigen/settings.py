@@ -13,10 +13,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
-import logging
-from azure.identity import DefaultAzureCredential
 
-logging.basicConfig(level=logging.DEBUG)
+
+
+
 load_dotenv()
 
 
