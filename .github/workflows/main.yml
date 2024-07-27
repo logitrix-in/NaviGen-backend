@@ -1,0 +1,28 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main  # Change this to your desired branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install SSH client
+      run: sudo apt-get install openssh-client
+
+    - name: Pull code via SSH
+      env:
+        SSH_KEY: ${{ secrets.SSH_KEY }}
+        USERNAME: ${{ secrets.SSH_USERNAME }}
+        HOST: ${{ secrets.SSH_HOST }}
+      run: |
+        cd /mnt/navigen/api/
+        git pull
+        
+        
