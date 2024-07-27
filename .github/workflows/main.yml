@@ -22,3 +22,5 @@ jobs:
         script: |
           cd /mnt/navigen/api/
           git pull
+          source env/bin/activate
+          pip install -r requirements.txt
