@@ -1,0 +1,124 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+wheels/
+share/python-wheels/
+*.manifest
+*.spec
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.sqlite3
+*.db
+
+# If your build process includes a file with environment variables:
+.env
+.env.*
+
+# Django migrations
+**/migrations/**/000*.py
+**/migrations/**/000*.pyc
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# static files
+staticfiles/
+
+# media files
+media/
+
+# Coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Pycharm
+*.idea/
+*.vscode/
+.idea/
+.idea/*
+
+# Sphinx documentation
+docs/_build/
+
+# pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+dmypy.json
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/

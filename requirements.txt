@@ -1,0 +1,8 @@
+django
+djangorestframework
+pillow
+channels
+daphne
+channels-redis
+whiteNoise
+python-dotenv
