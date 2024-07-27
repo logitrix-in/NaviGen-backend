@@ -30,8 +30,6 @@ models = [
 app_name = "products"
 
 for model in models:
-    cmd1 = f"pip install numpy"
-    subprocess.run(cmd1, shell=True)
     command = f"python manage.py vectordb_sync {app_name} {model}"
     print(f"Executing: {command}")
     subprocess.run(command, shell=True)

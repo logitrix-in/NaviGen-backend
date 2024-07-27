@@ -15,8 +15,6 @@ from dotenv import load_dotenv
 import os
 
 
-
-
 load_dotenv()
 
 
@@ -42,10 +40,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+JET_DEFAULT_THEME = 'light-violet'
+
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -156,25 +157,25 @@ STORAGES = {
         "BACKEND": "storages.backends.azure_storage.AzureStorage",
         "OPTIONS": {
             'azure_container': os.getenv("AZURE_MEDIA_CONTAINER_NAME"),
-            'timeout':20,
+            'timeout': 20,
             'expiration_secs': None,
-            "account_key":os.getenv("AZURE_ACCOUNT_KEY"),
-            "account_name":os.getenv("AZURE_ACCOUNT_NAME"),
-            "custom_domain":os.getenv("AZURE_DOMAIN")
+            "account_key": os.getenv("AZURE_ACCOUNT_KEY"),
+            "account_name": os.getenv("AZURE_ACCOUNT_NAME"),
+            "custom_domain": os.getenv("AZURE_DOMAIN")
         },
     },
-    "staticfiles":{
+    "staticfiles": {
         "BACKEND": "storages.backends.azure_storage.AzureStorage",
         "OPTIONS": {
             'azure_container': os.getenv("AZURE_STATIC_CONTAINER_NAME"),
-            "account_name":os.getenv("AZURE_ACCOUNT_NAME"),
-            'timeout':20,
+            "account_name": os.getenv("AZURE_ACCOUNT_NAME"),
+            'timeout': 20,
             'expiration_secs': None,
-            "account_key":os.getenv("AZURE_ACCOUNT_KEY"),
-            "custom_domain":os.getenv("AZURE_DOMAIN")
+            "account_key": os.getenv("AZURE_ACCOUNT_KEY"),
+            "custom_domain": os.getenv("AZURE_DOMAIN")
 
 
         },
     }
-        
+
 }
