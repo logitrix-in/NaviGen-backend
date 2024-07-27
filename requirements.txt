@@ -13,3 +13,6 @@ django-cors-headers
 uvicorn
 gunicorn
 psycopg2-binary
+django-storages[azure]
+azure-storage-blob
+azure-identity

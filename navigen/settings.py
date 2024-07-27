@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+import logging
+from azure.identity import DefaultAzureCredential
+
+logging.basicConfig(level=logging.DEBUG)
 load_dotenv()
 
 
@@ -52,7 +56,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_extensions',
     'vectordb',
-    'corsheaders'
+    'corsheaders',
+    "storages"
 ]
 
 MIDDLEWARE = [
@@ -127,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -144,3 +149,32 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_ALLOW_ALL = True
+
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.azure_storage.AzureStorage",
+        "OPTIONS": {
+            'azure_container': os.getenv("AZURE_MEDIA_CONTAINER_NAME"),
+            'timeout':20,
+            'expiration_secs': None,
+            "account_key":os.getenv("AZURE_ACCOUNT_KEY"),
+            "account_name":os.getenv("AZURE_ACCOUNT_NAME"),
+            "custom_domain":os.getenv("AZURE_DOMAIN")
+        },
+    },
+    "staticfiles":{
+        "BACKEND": "storages.backends.azure_storage.AzureStorage",
+        "OPTIONS": {
+            'azure_container': os.getenv("AZURE_STATIC_CONTAINER_NAME"),
+            "account_name":os.getenv("AZURE_ACCOUNT_NAME"),
+            'timeout':20,
+            'expiration_secs': None,
+            "account_key":os.getenv("AZURE_ACCOUNT_KEY"),
+            "custom_domain":os.getenv("AZURE_DOMAIN")
+
+
+        },
+    }
+        
+}
