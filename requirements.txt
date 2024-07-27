@@ -12,3 +12,4 @@ django-vectordb[standard]
 django-cors-headers
 uvicorn
 gunicorn
+psycopg2-binary
