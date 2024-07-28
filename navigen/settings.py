@@ -190,3 +190,19 @@ STORAGES = {
     }
 
 }
+
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [
+                {
+                    "address": f"rediss://{os.getenv('REDIS_URL')}:6380",
+                    "password": os.getenv('REDIS_PASSWORD'),
+                    "ssl_cert_reqs": None,  # This disables SSL certificate verification
+                }
+            ],
+        },
+    },
+}
