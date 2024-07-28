@@ -22,5 +22,6 @@ from products.views import GetSuggestion
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls')),
-    path('search/',GetSuggestion.as_view())
+    path('search/',GetSuggestion.as_view()),
+    path('chatbot/', include('chatbot.urls')),
 ]
