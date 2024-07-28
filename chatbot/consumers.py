@@ -8,7 +8,6 @@ from django.conf import settings
 from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.core.cache import cache
 
-CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -72,6 +71,8 @@ class GreetingConsumer(AsyncWebsocketConsumer):
         message = event["message"]
         engine = greetings()
         result = engine.get_response(message)
+        CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
+
         for item in result:
             await self.send(text_data=json.dumps({"message": item}))
             await asyncio.sleep(0.1)
