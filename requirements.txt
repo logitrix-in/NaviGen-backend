@@ -8,7 +8,6 @@ whiteNoise
 python-dotenv
 django-extensions
 numpy==1.24.1
-django-vectordb[standard]
 django-cors-headers
 uvicorn
 gunicorn
@@ -18,3 +17,5 @@ azure-storage-blob
 azure-identity
 django-jet-reboot
 djangorestframework_simplejwt
+qdrant-client
+tqdm

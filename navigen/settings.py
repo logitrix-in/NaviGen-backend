@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     'chatbot',
     'rest_framework',
     'django_extensions',
-    'vectordb',
     'corsheaders',
     "storages"
 ]

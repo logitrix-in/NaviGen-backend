@@ -17,10 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from authentication.urls import *
-
+from products.views import Search
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls')),
-    path('vector/', include('vectordb.urls')),
+    path('search/',Search.as_view())
 ]
