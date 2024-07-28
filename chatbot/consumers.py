@@ -69,3 +69,11 @@ class GreetingConsumer(AsyncWebsocketConsumer):
         for item in result:
             await self.send(text_data=json.dumps({"message": item}))
             await asyncio.sleep(0.1)
+        engine2 = retriever()
+        result2 = await sync_to_async(engine2.process_query)(message)
+        collections = []
+        for i in result2:
+            collections.append(i.get("collection"))
+            await self.send(text_data=json.dumps({"message": collections}))
+            await asyncio.sleep(0.1)
+        
