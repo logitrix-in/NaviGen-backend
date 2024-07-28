@@ -14,14 +14,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
-from authentication.urls import *
+from django.urls import path
 from products.views import GetSuggestion
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('auth/', include('authentication.urls')),
-    path('search/', include('products.urls')),
-    path('chatbot/', include('chatbot.urls')),
+    path('', GetSuggestion.as_view()),
 ]

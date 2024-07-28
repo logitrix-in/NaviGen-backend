@@ -18,7 +18,7 @@ from chatbot.consumers import ChatConsumer
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'navigen.settings')
 
 application = ProtocolTypeRouter({
-
+    "http": get_asgi_application(),
     "websocket": URLRouter([
         path("chat/", ChatConsumer.as_asgi()),
     ]),
