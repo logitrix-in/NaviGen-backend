@@ -1,5 +1,8 @@
+import asyncio
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
+from asgiref.sync import sync_to_async
+from chatbot.vector_search.search import VectorSearcher as retriever
 
 
 class ChatConsumer(AsyncWebsocketConsumer):
@@ -26,6 +29,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
     # Receive message from room group
     async def chat_message(self, event):
         message = event["message"]
-
-        # Send message to WebSocket
-        await self.send(text_data=json.dumps({"message": message}))
+        engine = retriever()
+        result = await sync_to_async(engine.process_query)(message)
+        message = result
+        final_result = []
+        for item in message:
+            final_result.append(item)
+            await self.send(text_data=json.dumps({"message": final_result}))
+            await asyncio.sleep(0.01)
+        

@@ -2,6 +2,10 @@ from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
 from openai import OpenAI
 from dotenv import load_dotenv
+from django.apps import apps
+from rest_framework import serializers
+from django.core.exceptions import ObjectDoesNotExist
+
 import os
 load_dotenv()
 class VectorSearcher:
@@ -47,25 +51,71 @@ class VectorSearcher:
                 }
             ],
             temperature=0,
-            
         )
         print(
             response.choices[0].message.content
         )
         return response.choices[0].message.content.split(",")
 
-    def search_collection(self, collection_name, query_embed):
+    def getserializerclass(self, model_class):
+        if not model_class:
+            raise ObjectDoesNotExist(f"Model '{model_class}' does not exist.")
+
+        class DynamicSerializer(serializers.ModelSerializer):
+            class Meta:
+                model = model_class
+                fields = '__all__'
+
+        return DynamicSerializer
+    
+    def search_collection_streamer(self, collection_name, query_embed):
         result = []
 
-        for collection in collection_name:
+        all_models = apps.get_app_config('products').get_models()
+        map_collection = {}
+        for Model in all_models:
+            map_collection[Model._meta.model_name.lower()] = Model
 
+        for collection in collection_name:
+            original_collection_model = map_collection[collection]            
+            collection_serializer = self.getserializerclass(original_collection_model)
             db_results = self.client.search(collection_name=collection, query_vector=query_embed)
             answer = []
             for item in db_results:
+                db = original_collection_model.objects.get(id=item.id)
+                serializer = collection_serializer(db)
                 answer.append(
                     {
                         "id": item.id,
-                        "payload": item.payload
+                        "payload": serializer.data,
+                    }
+                )
+                yield {
+                    "collection": collection,
+                    "results": answer
+                }
+                
+
+    def search_collection(self, collection_name, query_embed):
+        result = []
+
+        all_models = apps.get_app_config('products').get_models()
+        map_collection = {}
+        for Model in all_models:
+            map_collection[Model._meta.model_name.lower()] = Model
+
+        for collection in collection_name:
+            original_collection_model = map_collection[collection]            
+            collection_serializer = self.getserializerclass(original_collection_model)
+            db_results = self.client.search(collection_name=collection, query_vector=query_embed)
+            answer = []
+            for item in db_results:
+                db = original_collection_model.objects.get(id=item.id)
+                serializer = collection_serializer(db)
+                answer.append(
+                    {
+                        "id": item.id,
+                        "payload": serializer.data,
                     }
                 )
             result.append(
@@ -82,3 +132,12 @@ class VectorSearcher:
         collection_name = self.choose_collection(query, collections_list)
         results = self.search_collection(collection_name, query_embed)
         return results
+
+    def process_query_streamer(self, query):
+        query_embed = self.encode_query(query)
+        collections_list = self.get_collections_list()
+        collection_name = self.choose_collection(query, collections_list)
+        results = self.search_collection_streamer(collection_name, query_embed)
+        for result in results:
+            yield result
+        
