@@ -47,6 +47,7 @@ JET_DEFAULT_THEME = 'light-violet'
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -60,7 +61,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_extensions',
     'corsheaders',
-    "storages"
+    "storages",
+    "channels",
 ]
 
 
@@ -92,6 +94,12 @@ TEMPLATES = [
         },
     },
 ]
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
 
 # WSGI_APPLICATION = 'navigen.wsgi.application'
 ASGI_APPLICATION = 'navigen.asgi.application'
