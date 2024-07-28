@@ -15,7 +15,6 @@ class VectorSearcher:
             api_key=os.getenv(
             "QDRANT_API_KEY")
             )
-        
         self.model = SentenceTransformer(model_name)
         self.openai = OpenAI()
 

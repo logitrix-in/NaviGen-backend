@@ -206,3 +206,20 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION":f"rediss://{os.getenv('REDIS_URL')}:6380",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": os.getenv('REDIS_PASSWORD'),
+            "ssl_cert_reqs": None,  # This disables SSL certificate verification
+
+        }
+    }
+}
+
+CACHE_TTL = 60 * 1500 
+
